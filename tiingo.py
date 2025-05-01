@@ -9,7 +9,7 @@ API_TOKEN = "API_TOKEN"
 # Parameters
 symbol = "NVDA"
 start_date = "2025-01-01"
-end_date = "2025-04-01"
+end_date = "2025-05-01"
 
 url = f"https://api.tiingo.com/tiingo/daily/{symbol}/prices"
 headers = {
