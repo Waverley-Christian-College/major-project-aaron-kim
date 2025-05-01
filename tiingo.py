@@ -2,9 +2,10 @@ import requests
 import json
 from datetime import datetime
 import matplotlib.pyplot as plt
-
+import os
 # Your Tiingo API token
-API_TOKEN = "API_TOKEN"
+API_TOKEN = os.getenv("API_TOKEN")
+print(f"This is my API TOKEN: {API_TOKEN}"
 
 # Parameters
 symbol = "NVDA"
