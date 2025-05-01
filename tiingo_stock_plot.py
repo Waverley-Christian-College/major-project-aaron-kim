@@ -3,9 +3,9 @@
 import requests
 import json
 import matplotlib.pyplot as plt
-
+import os
 # --- Tiingo API Configuration ---
-API_TOKEN = "API_TOKEN"  # Replace with your actual token
+API_TOKEN = "os.genenv()"  # Replace with your actual token
 symbol = "NVDA"
 start_date = "2025-01-01"
 end_date = "2025-04-01"
