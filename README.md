@@ -3,7 +3,6 @@
 # 📈 Stock Price Plotter
 
 This Python script checks if it's a good time to buy a stock by calculating the 5-day moving average (MA), the 200-day moving average (MA), and the Graham Number. The user inputs a stock ticker (e.g., AAPL, MSFT), and the script fetches the necessary data from the Tiingo API to perform the analysis.
-![image](https://github.com/user-attachments/assets/6de62f13-8c28-4871-9753-52c618c435b2)
 
 
 ## 🚀 Instructions
