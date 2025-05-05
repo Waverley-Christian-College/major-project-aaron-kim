@@ -16,4 +16,4 @@ special features
 
 Our team (Junyik) built it. 
 
-Ai was used for certain sections
+
