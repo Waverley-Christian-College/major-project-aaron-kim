@@ -2,10 +2,9 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=19374584)
 # 📈 Stock Price Plotter
 
-This project teaches you how to use a real-world API (Tiingo) to:
-- Fetch stock market data
-- Parse JSON responses
-- Plot closing prices using matplotlib
+This Python script checks if it's a good time to buy a stock by calculating the 5-day moving average (MA), the 200-day moving average (MA), and the Graham Number. The user inputs a stock ticker (e.g., AAPL, MSFT), and the script fetches the necessary data from the Tiingo API to perform the analysis.
+![image](https://github.com/user-attachments/assets/6de62f13-8c28-4871-9753-52c618c435b2)
+
 
 ## 🚀 Instructions
 
