@@ -8,7 +8,7 @@ API_TOKEN = os.getenv("API_TOKEN")
 print(f"This is my API TOKEN: {API_TOKEN}"
 
 # Parameters
-symbol = "NVDA"
+symbol = "APPL"
 start_date = "2024-01-01"
 end_date = "2025-01-01"
 
