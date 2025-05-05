@@ -14,4 +14,5 @@ special features
 
 ## Who Built It?
 
-I built it
+Our team (Junyik) built it. 
+Ai was used for certain sections
