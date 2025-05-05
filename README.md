@@ -7,10 +7,11 @@ This Python script checks if it's a good time to buy a stock by calculating the 
 
 ## 🚀 Instructions
 
-1. Open this repo in GitHub Codespaces or VS Code.
-2. Run the following to install required packages:
-   ```bash
-   pip install -r requirements.txt
-3. Use the API token provided for you in MS TEAMS
-4. Replace `"your_tiingo_api_token"` in `tiingo_stock_plot.py` with your actual token.
-5. Run the script: `python tiingo_stock_plot.py`
+1. How to run it
+
+
+special features
+
+## Who Built It?
+
+I built it
