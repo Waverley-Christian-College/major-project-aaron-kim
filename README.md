@@ -7,7 +7,8 @@ This Python script checks if it's a good time to buy a stock by calculating the 
 
 ## 🚀 Instructions
 
-1. How to run it
+1. How to run it:
+
 
 
 special features
