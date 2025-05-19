@@ -1,18 +1,47 @@
+
+#Completed
 import requests
 import json
-from datetime import datetime
+   from datetime import date, timedelta
 import matplotlib.pyplot as plt
 import os
+
 # Your Tiingo API token
 API_TOKEN = os.getenv("API_TOKEN")
-print(f"This is my API TOKEN: {API_TOKEN}"
+print(f"This is my API TOKEN: {API_TOKEN}")
 
 # Parameters
-symbol = "APPL"
-start_date = "2024-01-01"
-end_date = "2025-01-01"
+stock_ticker = input("Please enter the stock ticker (e.g., AAPL, MSFT): ")
+today_date = input("what is the date Today? ")
 
-url = f"https://api.tiingo.com/tiingo/daily/{symbol}/prices"
+
+
+
+
+#ERRORS
+
+
+starting_date = today_date - timedelta(days=200) # today's date and 200 days backwards
+
+# Convert the dates to string format for the API 
+# Not sure on how this works for now
+start_date_str = start_date.strftime("%Y-%m-%d")
+end_date_str = end_date.strftime("%Y-%m-%d")
+
+print(f"Fetching data from {Starting_date} to {today_date_str}")
+
+
+
+
+
+
+
+
+
+#rest is not edited
+
+
+url = f"https://api.tiingo.com/tiingo/daily/{stock_ticker}/prices"
 headers = {
     "Content-Type": "application/json",
     "Authorization": f"Token {API_TOKEN}"
