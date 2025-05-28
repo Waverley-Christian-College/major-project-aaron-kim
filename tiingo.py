@@ -48,24 +48,7 @@ end_date_str = end_date.strftime("%Y-%m-%d")
 print(f"Fetching data from {start_date} to {end_date_str}")
 
 
-
-#ABOVE IS FULLY DONE
-
-#Before, the code above crashed whenever something bad happened
-#Now, code prints out a warning sign even though the user made a mistake
-#ChatGPT helped me with visuals, line 36, and taught me about try and excerpt
-
-
-
-
-
-
-
-
-
-#rest is not edited
-
-
+#URL and parameters for API request
 url = f"https://api.tiingo.com/tiingo/daily/{stock_ticker}/prices"
 headers = {
     "Content-Type": "application/json",
@@ -79,8 +62,22 @@ params = {
 
 # Make the request
 response = requests.get(url, headers=headers, params=params)
-data = response.json()
+if response.status_code != 200: #Not equal to 
+    print("❌ Error fetching data. Status code:", response.status_code)
+    exit(1)
 
+#ABOVE IS FULLY DONE
+
+#Before, the code above crashed whenever something bad happened
+#Now, code prints out a warning sign even though the user made a mistake
+#ChatGPT helped me with visuals, line 36, and taught me about try and excerpt
+
+
+
+
+
+
+#Bellow is the default code given by MR MARKS
 # Extract dates and closing prices
 dates = [entry["date"][:10] for entry in data]
 closes = [entry["close"] for entry in data]
