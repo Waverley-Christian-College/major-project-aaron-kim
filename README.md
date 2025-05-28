@@ -9,6 +9,11 @@ This Python script checks if it's a good time to buy a stock by calculating the 
 
 1. How to run it:
 
+Get stock data from the tinggo api
+Ask the user for input
+Analyze the data, for example ups and downs and show a graph
+Add reccomendations; should the user invest, wait, or not invest
+
 
 
 special features
