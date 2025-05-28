@@ -1,34 +1,51 @@
-
-#Completed
 import requests
 import json
-   from datetime import date, timedelta
+from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 import os
 
-# Your Tiingo API token
+#Tiingo API token
 API_TOKEN = os.getenv("API_TOKEN")
-print(f"This is my API TOKEN: {API_TOKEN}")
+if not API_TOKEN:
+    print("⚠️Error API token is not found.")
+    exit(1)
 
-# Parameters
-stock_ticker = input("Please enter the stock ticker (e.g., AAPL, MSFT): ")
-today_date = input("what is the date Today? ")
+#Input + Parameters
+stock_ticker = input(" Enter the stock ticker (e.g., AAPL, MSFT): ").strip().upper() #strip upper makes everything look neater. eg. m s f t to MSFT in the program
+today_date_input = input(" Enter today's date (YYYY-MM-DD): ").strip()
+try:
+    end_date = datetime.strptime(today_date_input, "%Y-%m-%d").date()
+except ValueError:
+    print("❌ Invalid date format. Please use YYYY-MM-DD.")
+    exit(1)
+#It tries to run a piece of code inside the try block, and if an error happens, it jumps to the except block
+
+
+try:
+    short_holder = int(input(" Enter days for short-term moving average (e.g., 5): "))
+    big_holder = int(input(" Enter days for long-term moving average (e.g., 200): "))
+except ValueError:
+    print("❌ Please enter integers for moving average periods.")
+    exit(1)
+
+#Date Stuff
+
+start_date = end_date - timedelta(days=big_holder + 60)  # extra days because of weekends and public holidays
+start_date_str = start_date.strftime("%Y-%m-%d")
+end_date_str = end_date.strftime("%Y-%m-%d")
+print(f"\n Fetching data from {start_date_str} to {end_date_str}...\n") 
+#ChatGPT gave me this code. I don't know 100% of how it works. But, it just makes the code neater: etc, Fetching data from xxxx-xx-xx to xxxx-xx-xx...
 
 
 
 
-
-#ERRORS
-
-
-starting_date = today_date - timedelta(days=200) # today's date and 200 days backwards
 
 # Convert the dates to string format for the API 
 # Not sure on how this works for now
 start_date_str = start_date.strftime("%Y-%m-%d")
 end_date_str = end_date.strftime("%Y-%m-%d")
 
-print(f"Fetching data from {Starting_date} to {today_date_str}")
+print(f"Fetching data from {start_date} to {end_date_str}")
 
 
 
