@@ -49,6 +49,14 @@ print(f"Fetching data from {start_date} to {end_date_str}")
 
 
 
+#ABOVE IS FULLY DONE
+
+#Before, the code above crashed whenever something bad happened
+#Now, code prints out a warning sign even though the user made a mistake
+#ChatGPT helped me with visuals, line 36, and taught me about try and excerpt
+
+
+
 
 
 
