@@ -12,7 +12,7 @@ if not API_TOKEN:
     exit(1)
 
 # Input + Parameters
-stock_ticker = input("Enter the stock ticker (e.g., AAPL, MSFT): ").strip().upper()  # strip upper makes everything look neater. eg. m s f t to MSFT in the program
+stock_ticker = input("Enter the stock ticker (e.g., AAPL, MSFT): ").strip().upper()  #strip upper makes everything look neater. eg. m s f t to MSFT in the program
 today_date_input = input("Enter today's date (YYYY-MM-DD): ").strip()
 
 try:
@@ -50,7 +50,7 @@ params = {
 response = requests.get(url, headers=headers, params=params)
 if response.status_code != 200:
     print("❌ Error fetching data. Status code:", response.status_code)
-        exit(1)
+    exit(1)
 
     # Extract dates and closing prices
     data = response.json()
