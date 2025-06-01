@@ -22,3 +22,10 @@ special features
 
 Our team (Junyik) built it. 
 
+
+THis is what is wrong wtih the code. Help me.
+Incorrect Endpoint for Fundamental Data:
+The fundamentals endpoint might not be available at the URL you're using. Tiingo's /tiingo/fundamentals/{ticker} endpoint may not work as you expect or might require different access.
+
+Fundamentals Data Format:
+Even if the fundamentals data is fetched correctly, the structure of the response may not be as expected (e.g., different field names, no metrics data, or missing EPS and Book Value). This could result in your code failing at the metrics.get() part.
