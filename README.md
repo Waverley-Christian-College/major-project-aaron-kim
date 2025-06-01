@@ -29,3 +29,9 @@ The fundamentals endpoint might not be available at the URL you're using. Tiingo
 
 Fundamentals Data Format:
 Even if the fundamentals data is fetched correctly, the structure of the response may not be as expected (e.g., different field names, no metrics data, or missing EPS and Book Value). This could result in your code failing at the metrics.get() part.
+
+
+PLAN: 2
+
+FINISH README
+FULLY FINISH CODE
