@@ -28,7 +28,7 @@ except ValueError:
     exit(1)
 
 # Date Stuff
-start_date = end_date - timedelta(days=big_holder + 100)  # extra days for weekends/holidays
+start_date = end_date - timedelta(days=big_holder+100)  # extra days for weekends/holidays
 start_date_str = start_date.strftime("%Y-%m-%d")
 end_date_str = end_date.strftime("%Y-%m-%d")
 print(f"\nFetching data from {start_date_str} to {end_date_str}...\n")
@@ -67,36 +67,4 @@ if len(closes) < big_holder:
 
 short_ma = np.convolve(closes, np.ones(short_holder)/short_holder, mode='valid')
 long_ma = np.convolve(closes, np.ones(big_holder)/big_holder, mode='valid')
-
-#HarD STUFF + fetching data. NOT WORKING
-# --- Fetch fundamental data ---
-company_url = f"https://api.tiingo.com/tiingo/fundamentals/{stock_ticker}"
-response_fundamentals = requests.get(company_url, headers=headers)
-
-if response_fundamentals.status_code != 200:
-    print(f"❌ Error fetching fundamentals. Status code: {response_fundamentals.status_code}")
-    print("Response:", response_fundamentals.text)  # Print the full response to understand the error better
-    exit(1)
-
-fundamentals_data = response_fundamentals.json()
-if not fundamentals_data:
-    print(f"❌ No fundamental data found for {stock_ticker}.")
-    exit(1)
-
-try:
-    # Fetch the first (and often the only) element in the fundamentals data
-    metrics = fundamentals_data[0].get("metrics", {})
-    eps = metrics.get("eps", None)
-    bvps = metrics.get("bookValue", None)
-
-    if eps is None or bvps is None:
-        raise ValueError("EPS or Book Value per Share not found in fundamental data.")
-
-    # Graham Number Calculation
-    graham_number = (22.5 * eps * bvps) ** 0.5
-    print(f"\nGraham Number for {stock_ticker}: {graham_number:.2f}")
-
-except (KeyError, IndexError, ValueError) as e:
-    print(f"❌ Error extracting EPS and BVPS: {e}")
-    exit(1)
-
+print("\nStock price data fetched and moving averages calculated.")
