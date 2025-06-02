@@ -78,13 +78,18 @@ print(f"Long-term ({big_holder}-day) Moving Average: {long_ma[-1]:.2f}")
 
 # Buy/Hold/Sell Logic
 if short_ma[-1] > long_ma[-1]:
-    recommendation = "BUY" "Golden Cross: Short-term MA has crossed above Long-term MA!"
+    recommendation = "BUY"
+    reason = "Golden Cross: The short-term moving average has crossed **above** the long-term moving average."
 elif short_ma[-1] < long_ma[-1]:
-    recommendation = "SELL" "Death Cross: Short-term MA has crossed below Long-term MA!"
+    recommendation = "SELL"
+    reason = "Death Cross: The short-term moving average has crossed **below** the long-term moving average."
 else:
-    recommendation = "NEUTRAL FIELD"
+    recommendation = "HOLD"
+    reason = "Neutral: The short-term and long-term moving averages are equal."
 
-print(f"Recommendation: {recommendation}")
+print(f"\nRecommendation: {recommendation}")
+print(f"Reason: {reason}")
 print("END RESULT")
+
 
 #SEAN DEBUGGED EVERYTHING + MADE EVERYTHING LOOK BETTER + README + STARTING TEXT MESSAGE
