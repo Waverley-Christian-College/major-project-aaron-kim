@@ -1,7 +1,6 @@
 import requests
-import json
-from datetime import datetime, timedelta
 import numpy as np  # For moving averages
+from datetime import datetime, timedelta
 import os
 
 # Tiingo API token
@@ -28,7 +27,7 @@ except ValueError:
     exit(1)
 
 # Date Stuff
-start_date = end_date - timedelta(days=big_holder+100)  # extra days for weekends/holidays
+start_date = end_date - timedelta(days=big_holder + 100)  # extra days for weekends/holidays
 start_date_str = start_date.strftime("%Y-%m-%d")
 end_date_str = end_date.strftime("%Y-%m-%d")
 print(f"\nFetching data from {start_date_str} to {end_date_str}...\n")
@@ -51,7 +50,7 @@ if response.status_code != 200:
     print("Response:", response.text)  # Print the full response for more details
     exit(1)
 
-# Process stock price data
+# Process stock price data. i don't get this part.
 data = response.json()
 if not data:
     print("❌ No stock price data found.")
@@ -60,6 +59,8 @@ if not data:
 dates = [entry["date"][:10] for entry in data]  # YYYY-MM-DD format
 closes = [entry["close"] for entry in data]
 
+
+#EZ
 # Calculate Moving Averages using numpy convolution
 if len(closes) < big_holder:
     print(f"❌ Not enough data to calculate {big_holder}-day moving average.")
@@ -67,4 +68,23 @@ if len(closes) < big_holder:
 
 short_ma = np.convolve(closes, np.ones(short_holder)/short_holder, mode='valid')
 long_ma = np.convolve(closes, np.ones(big_holder)/big_holder, mode='valid')
-print("\nStock price data fetched and moving averages calculated.")
+
+# Display results
+#SEAN's PART
+#HARD
+print(f"\n{stock_ticker} Stock Data:")
+print(f"Short-term ({short_holder}-day) Moving Average: {short_ma[-1]:.2f}")
+print(f"Long-term ({big_holder}-day) Moving Average: {long_ma[-1]:.2f}")
+
+# Buy/Hold/Sell Logic
+if short_ma[-1] > long_ma[-1]:
+    recommendation = "BUY" "Golden Cross: Short-term MA has crossed above Long-term MA!"
+elif short_ma[-1] < long_ma[-1]:
+    recommendation = "SELL" "Death Cross: Short-term MA has crossed below Long-term MA!"
+else:
+    recommendation = "NEUTRAL FIELD"
+
+print(f"Recommendation: {recommendation}")
+print("END RESULT")
+
+#SEAN DEBUGGED EVERYTHING + MADE EVERYTHING LOOK BETTER + README + STARTING TEXT MESSAGE
