@@ -20,7 +20,7 @@ except ValueError:
     exit(1)
 
 try:
-    short_holder = int(input("Enter days for short-term moving average (e.g., 5): "))
+    short_holder = int(input("Enter days for short-term moving average (e.g., 50): "))
     big_holder = int(input("Enter days for long-term moving average (e.g., 200): "))
 except ValueError:
     print("❌ Please enter integers for moving average periods.")
