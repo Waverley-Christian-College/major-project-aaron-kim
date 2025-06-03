@@ -66,12 +66,19 @@ if len(closes) < big_holder:
     print(f"❌ Not enough data to calculate {big_holder}-day moving average.")
     exit(1)
 
+company_url = f"https://api.tiingo.com/tiingo/fundamentals/{stock_ticker}"
+response_fundamentals = requests.get(company_url, headers=headers)
+if response.status_code = 200:
+    print(f"Error fetching fundamentals for {stock sticker}. Status_code: {response_fundamentals.status_code}")
+    print("Reponse:", response_fundamentals.text
+          exit(1))
+    
 short_ma = np.convolve(closes, np.ones(short_holder)/short_holder, mode='valid')
 long_ma = np.convolve(closes, np.ones(big_holder)/big_holder, mode='valid')
 
 # Display results
 #SEAN's PART
-#HARD
+
 print(f"\n{stock_ticker} Stock Data:")
 print(f"Short-term ({short_holder}-day) Moving Average: {short_ma[-1]:.2f}")
 print(f"Long-term ({big_holder}-day) Moving Average: {long_ma[-1]:.2f}")
@@ -92,4 +99,3 @@ print(f"Reason: {reason}")
 print("END RESULT")
 
 
-#SEAN DEBUGGED EVERYTHING + MADE EVERYTHING LOOK BETTER + README + STARTING TEXT MESSAGE
