@@ -50,7 +50,7 @@ if response.status_code != 200:
     print("Response:", response.text)  # Print the full response for more details
     exit(1)
 
-# Process stock price data. i don't get this part.
+# Process stock price data
 data = response.json()
 if not data:
     print("❌ No stock price data found.")
@@ -70,26 +70,30 @@ short_ma = np.convolve(closes, np.ones(short_holder)/short_holder, mode='valid')
 long_ma = np.convolve(closes, np.ones(big_holder)/big_holder, mode='valid')
 
 # Display results
-#SEAN's PART
 #HARD
-print(f"\n{stock_ticker} Stock Data:")
-print(f"Short-term ({short_holder}-day) Moving Average: {short_ma[-1]:.2f}")
-print(f"Long-term ({big_holder}-day) Moving Average: {long_ma[-1]:.2f}")
+# Display results
+print("\n📈 Stock Analysis Results")
+print(f"Ticker: {stock_ticker}")
+print(f"Date Analyzed: {end_date_str}")
+print(f"Short-Term ({short_holder}-day) Moving Average: {short_ma[-1]:.2f}")
+print(f"Long-Term ({big_holder}-day) Moving Average: {long_ma[-1]:.2f}")
 
 # Buy/Hold/Sell Logic
+print("\n🧠 Trading Signal Analysis")
 if short_ma[-1] > long_ma[-1]:
-    recommendation = "BUY"
-    reason = "Golden Cross: The short-term moving average has crossed **above** the long-term moving average."
+    recommendation = "BULLISH + BUY"
+    reason = "📈 Golden Cross detected – short-term moving average is above the long-term."
 elif short_ma[-1] < long_ma[-1]:
-    recommendation = "SELL"
-    reason = "Death Cross: The short-term moving average has crossed **below** the long-term moving average."
+    recommendation = "BEARISH + SELL"
+    reason = "📉 Death Cross detected – short-term moving average is below the long-term."
 else:
     recommendation = "HOLD"
-    reason = "Neutral: The short-term and long-term moving averages are equal."
+    reason = "➖ Moving averages are equal – no clear signal."
 
-print(f"\nRecommendation: {recommendation}")
-print(f"Reason: {reason}")
-print("END RESULT")
+print(f"\n📢 Recommendation: {recommendation}")
+print(f"💡 Reason: {reason}")
+
+print("\n✅ Analysis complete. Make sure to consider other factors before making investment decisions.")
 
 
 #SEAN DEBUGGED EVERYTHING + MADE EVERYTHING LOOK BETTER + README + STARTING TEXT MESSAGE
