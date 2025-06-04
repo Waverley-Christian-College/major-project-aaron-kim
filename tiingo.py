@@ -68,10 +68,10 @@ if len(closes) < big_holder:
 
 company_url = f"https://api.tiingo.com/tiingo/fundamentals/{stock_ticker}"
 response_fundamentals = requests.get(company_url, headers=headers)
-if response.status_code = 200:
-    print(f"Error fetching fundamentals for {stock sticker}. Status_code: {response_fundamentals.status_code}")
-    print("Reponse:", response_fundamentals.text
-          exit(1))
+if response_fundamentals.status_code != 200:
+    print(f"Error fetching fundamentals for {stock_sticker}. Status_code: {response_fundamentals.status_code}")
+    print("Reponse:", response_fundamentals.text)
+exit(1)
     
 short_ma = np.convolve(closes, np.ones(short_holder)/short_holder, mode='valid')
 long_ma = np.convolve(closes, np.ones(big_holder)/big_holder, mode='valid')
