@@ -79,7 +79,7 @@ print(f"Short-Term ({short_holder}-day) Moving Average: {short_ma[-1]:.2f}")
 print(f"Long-Term ({big_holder}-day) Moving Average: {long_ma[-1]:.2f}")
 
 # Buy/Hold/Sell Logic
-print("\n🧠 Trading Signal Analysis")
+print("\n Trading Signal Analysis")
 if short_ma[-1] > long_ma[-1]:
     recommendation = "BULLISH + BUY"
     reason = "📈 Golden Cross detected – short-term moving average is above the long-term."
@@ -93,7 +93,5 @@ else:
 print(f"\n📢 Recommendation: {recommendation}")
 print(f"💡 Reason: {reason}")
 
-print("\n✅ Analysis complete. Make sure to consider other factors before making investment decisions.")
+print("\n✅ Analysis complete. Make sure to consider other factors before investing.")
 
-
-#SEAN DEBUGGED EVERYTHING + MADE EVERYTHING LOOK BETTER + README + STARTING TEXT MESSAGE
