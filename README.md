@@ -1,16 +1,17 @@
-# 📈 Stock Price Plotter
+#Is It a Good Time to Buy This Tool? 💀💀
 
-This project teaches you how to use a real-world API (Tiingo) to:
-- Fetch stock market data
-- Parse JSON responses
-- Plot closing prices using matplotlib
+This Python script helps determine whether it's a good time to **buy**, **sell**, or **hold** a stock by calculating:
+-  The **short-term (e.g., 5-day)** moving average
+-  The **long-term (e.g., 200-day)** moving average
+-  (Coming soon) Graham Number and valuation metrics
 
-## 🚀 Instructions
+It pulls historical stock data from the **Tiingo API**, performs the analysis, and gives a final recommendation.
 
-1. Open this repo in GitHub Codespaces or VS Code.
-2. Run the following to install required packages:
-   ```bash
-   pip install -r requirements.txt
-3. Use the API token provided for you in MS TEAMS
-4. Replace `"your_tiingo_api_token"` in `tiingo_stock_plot.py` with your actual token.
-5. Run the script: `python tiingo_stock_plot.py`
+Special features 😈😈😈
+
+-Calculating short and long term averages
+-Fetching data securely using the tiingo api token
+-Advising whether or not to buy a particular stock 
+-Detects the Golden/Death cross patterns
+-Error handling 
+-Automatic date range calculation
