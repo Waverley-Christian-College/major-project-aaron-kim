@@ -26,14 +26,14 @@ except ValueError:
     print("❌ Please enter integers for moving average periods.")
     exit(1)
 
-# Date Stuff
-start_date = end_date - timedelta(days=big_holder + 100)  # extra days for weekends/holidays
+# --- Date setup ---
+start_date = end_date - timedelta(days=big_holder + 100)  # Extra days for holidays/weekends
 start_date_str = start_date.strftime("%Y-%m-%d")
 end_date_str = end_date.strftime("%Y-%m-%d")
 print(f"\nFetching data from {start_date_str} to {end_date_str}...\n")
 
 # --- Fetch stock price data ---
-url = f"https://api.tiingo.com/tiingo/daily/{stock_ticker}/prices"
+price_url = f"https://api.tiingo.com/tiingo/daily/{stock_ticker}/prices"
 headers = {
     "Content-Type": "application/json",
     "Authorization": f"Token {API_TOKEN}"
@@ -44,42 +44,34 @@ params = {
     "resampleFreq": "daily"
 }
 
-response = requests.get(url, headers=headers, params=params)
+response = requests.get(price_url, headers=headers, params=params)
 if response.status_code != 200:
     print(f"❌ Error fetching stock price data. Status code: {response.status_code}")
-    print("Response:", response.text)  # Print the full response for more details
+    print("Response:", response.text)
     exit(1)
 
-# Process stock price data
 data = response.json()
 if not data:
     print("❌ No stock price data found.")
     exit(1)
 
-dates = [entry["date"][:10] for entry in data]  # YYYY-MM-DD format
 closes = [entry["close"] for entry in data]
-
-
-#EZ
-# Calculate Moving Averages using numpy convolution
 if len(closes) < big_holder:
     print(f"❌ Not enough data to calculate {big_holder}-day moving average.")
     exit(1)
 
+# --- Calculate Moving Averages ---
 short_ma = np.convolve(closes, np.ones(short_holder)/short_holder, mode='valid')
 long_ma = np.convolve(closes, np.ones(big_holder)/big_holder, mode='valid')
 
-# Display results
-#HARD
-# Display results
+# --- Technical Analysis Output ---
 print("\n📈 Stock Analysis Results")
 print(f"Ticker: {stock_ticker}")
 print(f"Date Analyzed: {end_date_str}")
 print(f"Short-Term ({short_holder}-day) Moving Average: {short_ma[-1]:.2f}")
 print(f"Long-Term ({big_holder}-day) Moving Average: {long_ma[-1]:.2f}")
 
-# Buy/Hold/Sell Logic
-print("\n Trading Signal Analysis")
+print("\n📊 Trading Signal Analysis")
 if short_ma[-1] > long_ma[-1]:
     recommendation = "BULLISH + BUY"
     reason = "📈 Golden Cross detected – short-term moving average is above the long-term."
@@ -93,5 +85,8 @@ else:
 print(f"\n📢 Recommendation: {recommendation}")
 print(f"💡 Reason: {reason}")
 
-print("\n✅ Analysis complete. Make sure to consider other factors before investing.")
+# --- Fetch Fundamental Data for Graham Number ---
+fundamentals_url = f"https://api.tiingo.com/tiingo/fundamentals/{stock_ticker}/daily"
+response_fundamentals = requests.get(fundamentals_url, headers=headers)
 
+#usually doesn't work
