@@ -3,6 +3,8 @@ import numpy as np  # For moving averages
 from datetime import datetime, timedelta
 import os
 
+Introduction = input("Hi! I’m your stock analysis assistant. Just tell me the stock ticker you want and the date you’re interested in. I’ll grab the latest price data for you, calculate short-term and long-term moving averages, and then tell you whether it’s a good time to buy, hold, or sell based on how those averages compare. Easy, quick, and data-driven — I’ve got your back for smarter trading decisions!")
+
 # Tiingo API token
 API_TOKEN = os.getenv("API_TOKEN")
 if not API_TOKEN:
