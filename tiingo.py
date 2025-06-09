@@ -63,29 +63,31 @@ if len(closes) < big_holder:
     exit(1)
 
 # --- Calculate Moving Averages ---
-short_ma = np.convolve(closes, np.ones(short_holder)/short_holder, mode='valid')
-long_ma = np.convolve(closes, np.ones(big_holder)/big_holder, mode='valid')
+short_ma = np.convolve(closes, np.ones(short_holder) / short_holder, mode='valid')
+long_ma = np.convolve(closes, np.ones(big_holder) / big_holder, mode='valid')
 
-# Display results
-#SEAN's PART
-#HARD
-print(f"\n{stock_ticker} Stock Data:")
-print(f"Short-term ({short_holder}-day) Moving Average: {short_ma[-1]:.2f}")
-print(f"Long-term ({big_holder}-day) Moving Average: {long_ma[-1]:.2f}")
+# --- Technical Analysis Output ---
+print("\n📈 Stock Analysis Results")
+print(f"Ticker: {stock_ticker}")
+print(f"Date Analyzed: {end_date_str}")
+print(f"Short-Term ({short_holder}-day) Moving Average: {short_ma[-1]:.2f}")
+print(f"Long-Term ({big_holder}-day) Moving Average: {long_ma[-1]:.2f}")
 
+#BEARISH OR BULLISH DETECTOR
 print("\n📊 Trading Signal Analysis")
 if short_ma[-1] > long_ma[-1]:
     recommendation = "BULLISH + BUY"
     reason = "📈 Golden Cross detected – short-term moving average is above the long-term."
-elif short_ma[-1] < long_ma[-1]:
-    recommendation = "BEARISH + SELL"
-    reason = "📉 Death Cross detected – short-term moving average is below the long-term."
 else:
-    recommendation = "HOLD"
-    reason = "➖ Moving averages are equal – no clear signal."
+    recommendation = "BEARISH + SELL"
+    reason = "📉 Death Cross or no crossover – short-term moving average is below or equal to the long-term."
 
 print(f"\nRecommendation: {recommendation}")
 print(f"Reason: {reason}")
 print("END RESULT")
 
+# --- Fetch Fundamental Data for Graham Number ---
+fundamentals_url = f"https://api.tiingo.com/tiingo/fundamentals/{stock_ticker}/daily"
+response_fundamentals = requests.get(fundamentals_url, headers=headers)
 
+#usually doesn't work
