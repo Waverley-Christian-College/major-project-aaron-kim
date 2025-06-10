@@ -85,9 +85,3 @@ else:
 print(f"\nRecommendation: {recommendation}")
 print(f"Reason: {reason}")
 print("END RESULT")
-
-# --- Fetch Fundamental Data for Graham Number ---
-fundamentals_url = f"https://api.tiingo.com/tiingo/fundamentals/{stock_ticker}/daily"
-response_fundamentals = requests.get(fundamentals_url, headers=headers)
-
-#usually doesn't work
