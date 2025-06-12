@@ -109,7 +109,8 @@ if start == "yes":
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.show()
-
+    chart_file_name = "Moving_averages_chart.png"
+    plt.savefig(chart_file_name)
+    print(f"Chart saved as {chart_file_name}!")
 else:
     print("Maybe next time :(")
