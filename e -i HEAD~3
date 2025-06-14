@@ -1,0 +1,47 @@
+[33m347b26e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m got rid of everything to do with EPS. doesn't work
+[33m1537d59[m eps caluclation stuff
+[33medc2831[m Merge branch 'main' of https://github.com/Waverley-Christian-College/major-project-aaron-kim
+[33m84793d9[m Made an introduction which helps the user better understand what this tool does
+[33m2cecb21[m fixed the code from yesterday (creating a code to show company description)
+[33ma2a289f[m graham
+[33m2ffb847[m Mini edits. nothing big
+[33m940d9bc[m Changed formating -> looks better
+[33m8b22bad[m I made it so the code lets me fetch fundamental company information and I also added error handling
+[33m3e7648e[m changed short option to 50 instead of 5.
+[33m0225217[m deleted unnecessary things
+[33m75631d9[m Did the special features from the Readme
+[33mb87a78b[m Updating the readme. Is it a good time to buy part
+[33mf76a6fc[m Edited the last part, formatted nicely when ran
+[33mb226d60[m Minor edits - for results
+[33ma2e60df[m EDITED MY CODE. DELETED EPS SECTION. ERROR OCCURS THERE
+[33m8c466c0[m DELETED ALL THE UNNEEDED STUFF. CREATED A PLAN ON THE README
+[33m170c28f[m Message In README. Help. TIINGO.py is not working
+[33mc5a0f9c[m Edited readme
+[33m753f990[m Making Request, and finding moving average - successful. All I need to do is graham calculator, the death cross and Golden cross, and output.
+[33m015f423[m Making the request. fixed. but, i keep getting error 404
+[33mdd14202[m Test completed :)
+[33m411f0ef[m Created  a mini reflection. Tested everything, and works
+[33mfe13d5c[m Expected Results for code is placed :)
+[33m3ccdc75[m Merge branch 'main' of https://github.com/Waverley-Christian-College/major-project-aaron-kim
+[33m60851ae[m Requests for dates (Short and long) Made it so the code doesn't crash due to human errors.
+[33mbb675d3[m Update README.md
+[33ma5cf106[m RANDOM JUNYIK STUFF
+[33m97adce9[m Main
+[33m23ce4cc[m[33m ([m[1;31morigin/checkout[m[33m)[m Update tiingo.py
+[33mdf0a2b7[m Update README.md
+[33mac1ed12[m Update README.md
+[33m38c3bcf[m Update README.md
+[33m524404c[m Update README.md
+[33mc3eb1f2[m Update README.md
+[33me7885fc[m Update README.md
+[33mfc48323[m Update README.md
+[33m4f55b2e[m Merge pull request #2 from Waverley-Christian-College/Aaron-creator-1-patch-2
+[33m15d4137[m[33m ([m[1;31morigin/Aaron-creator-1-patch-2[m[33m)[m Update README.md
+[33mc05b5e1[m Update README.md
+[33m37f7812[m Update tiingo.py
+[33m2e3cc7f[m Update tiingo.py
+[33mc782a2d[m Update tiingo.py
+[33mcb036cd[m add online IDE url; add deadline
+[33m7992cd8[m Setting up GitHub Classroom Feedback
+[33m9bc0728[m[33m ([m[1;31morigin/feedback[m[33m)[m GitHub Classroom Feedback
+[33m1a86470[m Initial commit
